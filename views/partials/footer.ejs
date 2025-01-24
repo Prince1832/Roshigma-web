@@ -1,0 +1,196 @@
+<!-- !Footer -->
+<div class="bg-container">
+  <a href="#" id="back-to-top" class="back-to-top">Back To Top</a>
+</div>
+<section class="bg-container p-t-75 p-b-75 m-b-20">
+  <div class="footer container">
+    <div class="footer__connecting-opt m-b-50">
+      <p class="p-2 fc-s fw-6">Follow Our Social Networks</p>
+      <div class="footer__social-links">
+        <a
+          href="https://www.facebook.com/profile.php?id=61554339482020"
+          class="facebook"
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        >
+          <img
+            width="24"
+            height="24"
+            src="/images/facebook.svg"
+            alt="facebook"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/company/rhosigma-engineering-automations-pvt-ltd/"
+          class="linkedin"
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        >
+          <img
+            width="24"
+            height="24"
+            src="/images/linkedin.svg"
+            alt="linkedin"
+          />
+        </a>
+        <a
+          href="https://www.youtube.com/@RhosigmaEngineering
+                "
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+          class="youtube"
+        >
+          <img width="24" height="24" src="/images/youtube.svg" alt="youtube" />
+        </a>
+        <a
+          href="https://www.instagram.com/rhosigma_engineering/"
+          class="instagram"
+          rel="nofollow noreferrer noopener"
+          target="_blank"
+        >
+          <img
+            width="24"
+            height="24"
+            src="/images/instagram.svg"
+            alt="instagram"
+          />
+        </a>
+        <a
+          href="https://twitter.com/@rhosigma"
+          class="twitter"
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        >
+          <img
+            width="24"
+            height="24"
+            src="/images/twitterx.svg"
+            alt="twitter"
+          />
+        </a>
+      </div>
+      <p class="p-2 fc-s fw-6">Be the First One to Hear About Updates</p>
+      <!-- <form class="footer__first-updates" id="newsletter-form" action="/news-letter" method="post"
+        onsubmit="return validateNewsLetter()">
+        <input class="fc-s fw-5 t-cap br-10" type="email" id="email" name="email" disabled placeholder="Email" required
+          onblur="validateEmail('newsletter-form')">
+        <button class="rhosigma-btn subscribe-now-button" type="submit">Subscribe</button>
+        <p id="emailError" class="error-message"></p>
+
+      </form> -->
+    </div>
+    <hr class="m-t-50 m-b-50" />
+
+    <div class="footer__main-content">
+      <div class="footer__about">
+        <a href="/">
+          <img
+            width="400"
+            height="100"
+            loading="lazy"
+            src="/images/rhosigma-logo.svg"
+            alt="Rhosigma Logo"
+        /></a>
+        <p class="fc-s fw-5 p-2 m-t-20">
+          Where innovation meets excellence in the world of electronic
+          technology. Established with a passion for advancing the boundaries of
+          what's possible.
+        </p>
+      </div>
+
+      <ul>
+        <li><a class="p-2 fc-s fw-5" href="/blog">Blogs</a></li>
+        <li><a class="p-2 fc-s fw-5" href="/careers">careers</a></li>
+        <li><a class="p-2 fc-s fw-5" href="/case-studies">Case Studies</a></li>
+        <li>
+          <a class="p-2 fc-s fw-5" href="/design-partners">Design Partners</a>
+        </li>
+      </ul>
+
+      <div class="footer__contact-info">
+        <div class="footer-number">
+          <span><img src="/images/phone.svg" alt="phone" /></span>
+          <div class="contact --contac-footer">
+            <a class="fc-a fw-5 p-2" href="tel:86555 87403">
+              +91 86555 87403
+            </a>
+            <a class="fc-a fw-5 p-2" href="tel:80973 90322"
+              >/ +91 80973 90322</a
+            >
+          </div>
+        </div>
+
+        <a class="fc-a fw-5 p-2" href="mailto:info@rhosigma.in"
+          ><span><img src="/images/mail.svg" alt="email" /></span>
+          info@rhosigma.in</a
+        >
+        <p class="fc-s fw-5 p-2 m-t-20">
+          602-B, Virani Business Center, Opp Bharat Gears Limited, Kausa Mumbra,
+          Thane 400612.
+        </p>
+      </div>
+
+      <ul>
+        <li><a class="p-2 fc-s fw-5" href="/terms-of-use">Terms of use</a></li>
+        <li>
+          <a class="p-2 fc-s fw-5" href="/privacy-policy">Privacy Policy</a>
+        </li>
+        <li><a class="p-2 fc-s fw-5" href="/sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-container m-b-20">
+  <div class="container footer-bottom">
+    <p class="fc-s fw-4">
+      &copy; 2020 - <span id="currentYearInline"></span> Rhosigma - All Rights
+      Reserved
+      <script>
+        document.getElementById("currentYearInline").textContent =
+          new Date().getFullYear();
+      </script>
+    </p>
+
+    <p class="fc-s fw-4">
+      Designed & Maintained by
+      <a
+        class="fc-s fw-7"
+        target="_blank"
+        title="#1 Website Design and Development Agency in Mumbai"
+        href="https://sovorun.com/"
+        >Sovorun</a
+      >
+    </p>
+  </div>
+</section>
+<!-- !Footer -->
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LfOISgqAAAAAD_8sXe_G-cjHyLQdA-hA5dWXDgv"></script>
+<script src="/javascript/main.js"></script>
+
+<script>
+  function newsLetterEmail() {
+    var emailInput = document.getElementById("newsEmail");
+    var emailError = document.getElementById("newsEmailError");
+    var email = emailInput.value;
+
+    emailInput.classList.remove("error-border");
+    emailError.innerHTML = "";
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      emailInput.classList.add("error-border");
+      emailError.innerHTML = "Please enter a valid email address";
+    }
+  }
+
+  function validateNewsLetter() {
+    newsLetterEmail();
+    var errors = document.getElementsByClassName("error-border");
+    if (errors.length > 0) {
+      return false;
+    }
+    return true;
+  }
+</script>

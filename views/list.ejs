@@ -1,0 +1,77 @@
+<%- include('partials/adminNavbar'); -%>
+  <div class="flex my-4">
+    <div class="flex-grow">
+      <h1
+        class="mb-4 text-5xl font-medium leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">
+        <%= modelName %> Data
+      </h1>
+    </div>
+    <div class="ml-auto">
+      <a class="flex w-full justify-center  rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        href="/list/<%= modelName %>/create">Create <%= modelName %></a>
+    </div>
+  </div>
+
+  <% if (data.length> 0) { %>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <% Object.keys(data[0]._doc).forEach(function(key) { %>
+              <% if (key !=='__v' && !Model.schema.path(key).options.usePassword &&
+                !Model.schema.path(key).options.useImage && !Model.schema.path(key).options.useEditor) { %>
+                <th scope="col" class="px-6 py-3">
+                  <%= key %>
+                </th>
+                <% } %>
+                  <% }) %>
+                    <th scope="col" class="px-6 py-3">
+                      Action
+                    </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(function(row) { %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <% Object.entries(row._doc).forEach(function([key, value]) { %>
+                <% if (key !=='__v' && !Model.schema.path(key).options.usePassword &&
+                  !Model.schema.path(key).options.useImage && !Model.schema.path(key).options.useEditor) { %>
+                  <% if (key==='_id' ) { %>
+                    <th scope="row" class="px-6 py-4 font-medium underline text-blue-600 whitespace-nowrap">
+                      <a href="/list/<%= modelName %>/update/<%= value.toString() %>">
+                        <%= value %>
+                      </a>
+                    </th>
+                    <% } else if (key==='createdAt' || key==='updatedAt' ) { %>
+                      <td class="px-6 py-4">
+                        <%= value.toLocaleDateString() %>
+                      </td>
+                      <% } else { %>
+                        <td class="px-6 py-4">
+                          <% if (value.length> 20) { %>
+                            <%= value.substring(0, 20) + '...' %>
+                              <% } else { %>
+                                <%= value %>
+                                  <% } %>
+                        </td>
+                        <% } %>
+                          <% } %>
+                            <% }) %>
+                              <td class="px-6 py-4">
+                                <form class="font-medium text-red-600 dark:text-red-500 hover:underline" id="deleteForm"
+                                  action="/list/<%= modelName %>/delete/<%= row._id %>" method="POST">
+                                  <input type="submit" value="DELETE">
+                                </form>
+                                <!-- <a class="font-medium text-red-600 dark:text-red-500 hover:underline" href=""></a> -->
+                              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% }else { %>
+      <p>No data in this model yet</p>
+      <% } %>
+
+
+        <%- include('partials/adminFooter'); -%>

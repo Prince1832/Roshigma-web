@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= career.metaTitle %> - Rhosigma Engineering
+  </title>
+  <meta name="description" content="<%= career.metaDescription %>" />
+  <meta name="robots" content="<%= career.indexing %>" />
+  <%- include('partials/preconnect') %>
+    <link rel="preload" as="image" href="https://rhosigma.in/images/career-banner.webp" />
+
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content=" <%= career.metaTitle %> - Rhosigma Engineering" />
+    <meta property="og:description" content="<%= career.metaDescription %>" />
+    <meta property="og:url" content="https://rhosigma.in/careers/<%= career.slug %>" />
+    <link rel="canonical" href="https://rhosigma.in/careers/<%= career.slug %>" />
+
+    <!-- Twitter Card meta tags for Twitter sharing -->
+    <meta name="twitter:title" content=" <%= career.metaTitle %> - Rhosigma Engineering" />
+    <meta name="twitter:description" content="<%= career.metaDescription %>" />
+    <%- include('partials/metas') %>
+</head>
+
+<body>
+  <%- include('partials/navbar') %>
+
+    <!-- !Service Banner -->
+    <section class="bg-container --bg-img-container firmware-banner m-b-50 m-t-50">
+      <h1 class="h1 fc-w fw6 t-upper tc">
+        <%= career.position %>
+      </h1>
+
+      <!-- *BreadCrumb -->
+      <div class="container breadcrumb">
+        <a href="/">Home</a>
+        <a href="/careers">Careers</a>
+        <a class="bc-active">
+          <%= career.position %>
+        </a>
+      </div>
+      <!-- *BreadCrumb -->
+    </section>
+    <!-- !Service Banner -->
+
+    <!-- !Job Description -->
+    <section class="container job-description m-t-50 m-b-50">
+      <div class="job-description__info">
+        <span class="fc-s fw-4 p-2"><strong class="fc-a fw-6 p-2">Salary</strong>
+          <%= career.salary %>
+        </span>
+        <span class="fc-s fw-4 p-2"><strong class="fc-a fw-6 p-2">Job Type</strong>
+          <%= career.type %>
+        </span>
+        <span class="fc-s fw-4 p-2"><strong class="fc-a fw-6 p-2">Shift</strong>
+          <%= career.shift %>
+        </span>
+      </div>
+      <%- career.content %>
+    </section>
+    <!-- !Job Description -->
+
+    <!-- ! careers form -->
+    <section class="job-description container m-b-50 m-t-50">
+      <form class="get-quote__contact-form contact-form__form job-description__form" action="/career-form" method="post"
+        id='career-form' onsubmit="handleFormSubmit(event, 'career-form')">
+        <div class="form-item">
+          <label for="contact-name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Name" required maxlength="50"
+            oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')" onblur="validateName('career-form')" />
+          <p id="nameError" class="error-message"></p>
+        </div>
+        <div class="form-item-grid cta-grid">
+          <div class="form-item">
+            <label for="contact-phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Phone" required autocomplete="off" name="phone" maxlength="15"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'')" onblur="validatePhone('career-form')" />
+            <p id="phoneError" class="error-message"></p>
+          </div>
+
+          <div class="form-item">
+            <label for="contact-email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required
+              onblur="validateEmail('career-form')" />
+            <p id="emailError" class="error-message"></p>
+          </div>
+        </div>
+
+        <div class="form-item">
+          <label class="position-label" for="position">Position</label>
+          <input class="get-quote__position m-b-20" name="position" type="text" id="position"
+            value="<%= career.position %>" disabled required />
+        </div>
+
+        <div class="form-item">
+          <label class="upload_resume" for="resume">Upload Resume/CV</label>
+          <div class="drop-zone ">
+            <span class="drop-zone__prompt">upload resume here</span>
+            <input type="file" name="myFile" id="resume" class="drop-zone__input" />
+          </div>
+          <p id="fileError" class="error-message"></p>
+        </div>
+
+
+        <div class="form-item">
+          <label for="contact-message">Bio</label>
+          <textarea id="textarea" name="message" placeholder="Message" autocomplete="off"></textarea>
+          <p id="messageError" class="error-message"></p>
+        </div>
+
+        <button type="submit" class="rhosigma-btn submit-btn">Submit</button>
+        <p class="form-message m-t-20"></p>
+      </form>
+    </section>
+    <!-- ! careers form -->
+
+    <%- include('partials/footer') %>
+
+
+
+      <script>
+        document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+          const dropZoneElement = inputElement.closest(".drop-zone");
+
+          dropZoneElement.addEventListener("click", (e) => {
+            inputElement.click();
+          });
+
+          inputElement.addEventListener("change", (e) => {
+            if (inputElement.files.length) {
+              updateThumbnail(dropZoneElement, inputElement.files[0]);
+            }
+          });
+
+          dropZoneElement.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZoneElement.classList.add("drop-zone--over");
+          });
+
+          ["dragleave", "dragend"].forEach((type) => {
+            dropZoneElement.addEventListener(type, (e) => {
+              dropZoneElement.classList.remove("drop-zone--over");
+            });
+          });
+
+          dropZoneElement.addEventListener("drop", (e) => {
+            e.preventDefault();
+
+            if (e.dataTransfer.files.length) {
+              inputElement.files = e.dataTransfer.files;
+              updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+            }
+
+            dropZoneElement.classList.remove("drop-zone--over");
+          });
+        });
+
+        function updateThumbnail(dropZoneElement, file) {
+          let thumbnailElement =
+            dropZoneElement.querySelector(".drop-zone__thumb");
+
+          // First time - remove the prompt
+          if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+            dropZoneElement.querySelector(".drop-zone__prompt").remove();
+          }
+
+          // First time - there is no thumbnail element, so lets create it
+          if (!thumbnailElement) {
+            thumbnailElement = document.createElement("div");
+            thumbnailElement.classList.add("drop-zone__thumb");
+            dropZoneElement.appendChild(thumbnailElement);
+          }
+
+          thumbnailElement.dataset.label = file.name;
+
+          // Show thumbnail for image files
+          if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+              thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+            };
+          } else {
+            thumbnailElement.style.backgroundImage = null;
+          }
+        }
+      </script>
+</body>
+
+</html>

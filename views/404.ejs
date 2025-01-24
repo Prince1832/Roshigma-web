@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <meta name="description" content="Page Not Found">
+    <meta name="robots" content="noindex, follow">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image" href="https://rhosigma.in/images/404.webp" />
+
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="404">
+        <meta property="og:description" content="Page Not Found">
+        <meta property="og:url" content="https://rhosigma.in/404">
+        <link rel="canonical" href="https://rhosigma.in/404" />
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="404">
+        <meta name="twitter:description" content="Page Not Found">
+        <%- include('partials/metas') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+        <section class="page-not-found m-b-50 ">
+            <img width="500" height="500" loading="eager" src="/images/404.webp" alt="404 Error">
+            <p class="fc-w fw-6 tc p-2 m-b-50 container">
+                Sorry, but the page you're looking for seems to be missing. Please check the URL for typos, or go back
+                to the homepage and navigate from there. If you think this is an error on our end, feel free to contact
+                our support team. We apologize for any inconvenience.</p>
+            <a class="rhosigma-btn" href="/">Explore More</a>
+        </section>
+
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

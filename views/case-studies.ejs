@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies: Dive into Our Success Stories - Rhosigma</title>
+    <meta name="description"
+        content="Dive into our success stories. Explore how innovation unfolded in completed projects, showcasing our expertise and commitment.">
+    <meta name="robots" content="noindex, follow">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image" href="https://rhosigma.in/images/service-banner.webp" />
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="Case Studies: Dive into Our Success Stories - Rhosigma">
+        <meta property="og:description"
+            content="Dive into our success stories. Explore how innovation unfolded in completed projects, showcasing our expertise and commitment.">
+        <meta property="og:url" content="https://rhosigma.in/case-studies">
+        <link rel="canonical" href="https://rhosigma.in/case-studies" />
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="Case Studies: Dive into Our Success Stories - Rhosigma">
+        <meta name="twitter:description"
+            content="Dive into our success stories. Explore how innovation unfolded in completed projects, showcasing our expertise and commitment.">
+
+        <%- include('partials/metas') %>
+</head>
+
+
+<body>
+    <%- include('partials/navbar') %>
+
+
+        <!-- !Service Banner -->
+        <section class="bg-container --bg-img-container case-studies-banner  m-b-50 m-t-50">
+            <h1 class="h1 fc-w fw6 t-upper tc">Case Studies</h1>
+            <!-- *BreadCrumb -->
+            <div class="container breadcrumb">
+                <a href="/">Home</a>
+                <a class="bc-active">Case Studies</a>
+            </div>
+            <!-- *BreadCrumb -->
+        </section>
+        <!-- !Service Banner -->
+
+
+
+        <!-- !UNVEILING SUCCESS STORIES ACROSS INDUSTRIES -->
+        <section class=" what-we-do m-t-100 m-b-100">
+            <div class="container what-we-do__main-content">
+                <h2 class="h2 m-b-20">Unveiling Success Stories Across Industries</h2>
+                <p class="p-2 fc-s fw-5 m-b-20 lh-150">Discover the dynamic world of Rhosigma through our Case Studies
+                    page,
+                    where challenges meet innovation, and success stories come to life. Each case study is a testament
+                    to our commitment to navigating complexities and driving transformative solutions. From optimizing
+                    logistics to accelerating product launches, these narratives provide a snapshot of the challenges
+                    faced, the tailored solutions implemented, and the impactful outcomes achieved.
+                </p>
+                <p class="p-2 fc-s fw-5 m-b-20 lh-150">Join us on this journey of innovation, where Rhosigma turns
+                    challenges
+                    into opportunities, leaving a lasting imprint on industries. Explore the depth of our expertise, and
+                    witness firsthand how we bring meaningful change to the technology and business landscape
+                </p>
+            </div>
+        </section>
+        <!-- !UNVEILING SUCCESS STORIES ACROSS INDUSTRIES -->
+
+
+
+
+
+        <!-- ! Success Stories -->
+        <% if (caseStudies.length> 0) { %>
+            <section class="container success-stories m-t-100 m-b-100">
+                <h2 class="h2 m-b-20">Success stories</h2>
+                <% caseStudies.forEach((c, index)=> { %>
+                    <a href="/case-studies/<%= c.slug %>">
+                        <div
+                            class="<%= index % 2 === 0 ? 'success-stories__card-odd' : 'success-stories__card-even' %>">
+                            <% if (index % 2 !==0) { %>
+                                <div class="success-stories__img">
+                                    <img width="750" height="400" loading="eager" src="<%= c.image %>"
+                                        alt="Optimizing Energy Grid Efficiency - Rhosigma">
+                                </div>
+                                <% } %>
+
+                                    <div class="success-stories__textual-content">
+                                        <h3 class="h3 fc-w fw-6 t-cap">
+                                            <%= c.title %>
+                                        </h3>
+                                        <p class="p-2 fc-w fw-4">
+                                            <%= c.description %>
+                                        </p>
+                                    </div>
+                                    <% if (index % 2===0) { %>
+                                        <div class="success-stories__img">
+                                            <img width="750" height="400" loading="lazy" src="<%= c.image %>"
+                                                alt="Optimizing Energy Grid Efficiency">
+                                        </div>
+                                        <% } %>
+                        </div>
+                    </a>
+                    <% }); %>
+            </section>
+            <% }; %>
+                <!-- ! Success Stories -->
+
+                <%- include('partials/contact') %>
+                    <%- include('partials/footer') %>
+
+
+
+
+
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var parent = document.querySelector(".current-opening__process");
+                                var items = parent.querySelectorAll(".step");
+                                var loadMoreBtn = document.getElementById("load-more-comments");
+                                var maxItems = 3;
+                                var hiddenClass = "visually-hidden";
+
+                                // Add visually hidden class to items beyond maxItems
+                                items.forEach(function (item, idx) {
+                                    if (idx > maxItems - 1) {
+                                        item.classList.add(hiddenClass);
+                                    }
+                                });
+
+                                // On click of show more button, show more = maxItems
+                                // If there are none left to show, hide the show more button
+                                loadMoreBtn.addEventListener("click", function (e) {
+                                    var hiddenItems = parent.querySelectorAll("." + hiddenClass);
+                                    hiddenItems.forEach(function (item, idx) {
+                                        if (idx < maxItems) {
+                                            item.classList.remove(hiddenClass);
+                                        }
+                                    });
+
+                                    // Hide button if no more to show
+                                    if (parent.querySelectorAll("." + hiddenClass).length === 0) {
+                                        loadMoreBtn.style.display = 'none';
+                                    }
+                                });
+                            });
+                        </script>
+</body>
+
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+
+    <meta name="description" content="Thank you, form has been submited....!">
+    <meta name="robots" content="noindex, follow">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image" href="https://rhosigma.in/images/service-banner.webp" />
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="Thank You">
+        <meta property="og:description" content="Thank you, form has been submited....!">
+        <meta property="og:url" content="https://rhosigma.in/thank-you">
+        <link rel="canonical" href="https://rhosigma.in/thank-you" />
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="Thank You">
+        <meta name="twitter:description" content="Thank you, form has been submited....!">
+        <%- include('partials/metas') %>
+            <style>
+                .thank-you {
+                    padding: 0 10px;
+                    height: calc(100vh - 100px);
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    text-align: center;
+                    gap: 20px;
+                }
+
+                .thank-you>img {
+                    margin: 0 auto;
+                    display: block;
+                }
+
+                .thank-you-socials {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                }
+
+                .thank-you-socials a {
+                    background: var(--accent);
+                    padding: 10px;
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    border-radius: 10px;
+                }
+
+                .thank-you>a {
+                    background: var(--accent);
+                    font-size: 30px;
+                    border-radius: 10px;
+                    font-weight: 500;
+                    padding: 20px 50px;
+                    color: #fff;
+                    width: fit-content;
+                    margin: 20px auto;
+                }
+            </style>
+</head>
+
+<body>
+    <%- include('partials/navbar'); -%>
+        <div class="thank-you ">
+            <img src="/images/thank-you.webp" width="90px" height="90px" alt="Thank You">
+            <h1 class="h-0">Thank You...!</h1>
+            <p class="p"> Your form has been successfully submitted. We will get back to you shortly!</p>
+            <div class="thank-you-socials">
+                <a href="https://www.facebook.com/profile.php?id=61554339482020" target="_blank"
+                    rel="nofollow noreferrer noopener"><img width="24px" height="24" src="/images/facebook.svg"
+                        alt="facebook" /></a>
+                <a href="https://www.linkedin.com/company/rhosigma-engineering-automations-pvt-ltd/" target="_blank"
+                    rel="nofollow noreferrer noopener"><img width="24px" height="24" src="/images/linkedin.svg"
+                        alt="linkedin" /></a>
+                <a href="https://www.youtube.com/@RhosigmaEngineering" target="_blank"
+                    rel="nofollow noreferrer noopener"><img width="24px" height="24" src="/images/youtube.svg"
+                        alt="youtube" /></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="nofollow noreferrer noopener"><img
+                        width="24px" height="24" src="/images/instagram.svg" alt="instagram" /></a>
+                <a href="https://twitter.com/@rhosigma" target="_blank" rel="nofollow noreferrer noopener"><img
+                        width="24px" height="24" src="/images/twitterx.svg" alt="twitter" /></a>
+            </div>
+            <a href="/" class="thank-you__explore-more">
+                Explore More
+            </a>
+        </div>
+
+        <%- include('partials/footer'); -%>
+
+</body>
+
+</html>

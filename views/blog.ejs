@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs: Your Gateway to Digital Mastery - Rhosigma</title>
+
+  <meta name="description"
+    content="Explore electronics tech's forefront with our engaging blog collection. Stay informed, stay ahead in the digital landscape." />
+  <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1 " />
+  <%- include('partials/preconnect') %>
+    <link rel="preload" as="image" href="https://rhosigma.in/images/banner.webp" />
+
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Blogs: Your Gateway to Digital Mastery - Rhosigma" />
+
+    <meta property="og:description"
+      content="Explore electronics tech's forefront with our engaging blog collection. Stay informed, stay ahead in the digital landscape." />
+    <meta property="og:url" content="https://rhosigma.in/blog" />
+    <link rel="canonical" href="https://rhosigma.in/blog" />
+
+    <!-- Twitter Card meta tags for Twitter sharing -->
+    <meta name="twitter:title" content="Blogs: Your Gateway to Digital Mastery - Rhosigma" />
+
+    <meta name="twitter:description"
+      content="Explore electronics tech's forefront with our engaging blog collection. Stay informed, stay ahead in the digital landscape." />
+    <%- include('partials/metas') %>
+</head>
+
+<body>
+  <%- include('partials/navbar') %>
+
+    <!-- !Service Banner -->
+    <section class="bg-container --bg-img-container blog-banner m-b-50 m-t-50">
+      <h1 class="h1 fc-w fw6 t-upper tc">Blogs</h1>
+      <!-- *BreadCrumb -->
+      <div class="container breadcrumb">
+        <a href="/">Home</a>
+        <a class="bc-active">Blogs</a>
+      </div>
+      <!-- *BreadCrumb -->
+    </section>
+    <!-- !Service Banner -->
+
+    <section class="about-blog container m-t-50">
+      <p class="fc-s fw-5 p-2 m-b-20">
+        Welcome to the Rhosigma Blog, your gateway to the latest insights,
+        trends, and innovations in the dynamic world of electronic technology.
+      </p>
+      <p class="fc-s fw-5 p-2 m-b-20">
+        Our blog is a space where we share knowledge, explore emerging
+        technologies, and delve into the transformative impact of electronic
+        solutions across various industries. Join us on this journey of
+        exploration, discovery, and inspiration as we navigate the ever-evolving
+        landscape of electronic innovation.
+      </p>
+    </section>
+
+    <!-- !Blogs Section -->
+    <% if (blogs.length>0) { %>
+      <section class="blogs m-b-100 m-t-100 bg-container p-t-50 p-b-50">
+        <div class="blogs__container container">
+          <% blogs.forEach(blog=> { %>
+
+            <a href="/blog/<%= blog.slug %>" class="blogs__card fc-s">
+              <img loading="lazy" width="380" height="200" src="<%= blog.image %>" alt="<%= blog.title %> - Rhosigma" />
+              <div class="blogs__content">
+                <div class="blogs__info">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 20" fill="none">
+                      <path
+                        d="M17 19C17 16.2386 13.4183 14 9 14C4.58172 14 1 16.2386 1 19M9 11C6.23858 11 4 8.76142 4 6C4 3.23858 6.23858 1 9 1C11.7614 1 14 3.23858 14 6C14 8.76142 11.7614 11 9 11Z"
+                        stroke="#373737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <%= blog.author.name %>
+                  </span>
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M10 5V10H15M10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19Z"
+                        stroke="#373737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <%= blog.readTime %>
+                  </span>
+                  <span id="date">
+                    <%= blog.updatedAt.toLocaleDateString() %>
+                  </span>
+                </div>
+                <h2 class="h5 fc-a fw-6">
+                  <span href="/blog/<%= blog.slug %>">
+                    <%= blog.title %>
+                  </span>
+                </h2>
+                <p class="fc-s fw-5 p-2">
+                  <%= blog.description %>
+                </p>
+                <span href="/blog/<%= blog.slug %>" class="service-button">
+                  <span>Read
+                    Blog</span>
+              </div>
+            </a>
+            <% }); %>
+        </div>
+      </section>
+      <% }; %>
+        <!-- !Blogs Section -->
+
+        <%- include('partials/contact') %> <%- include('partials/footer') %>
+</body>
+
+</html>

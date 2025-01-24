@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect with Us - Innovate with Us - Rhosigma</title>
+  <meta name="description"
+    content="Contact Rhosigma now and be part of the innovation wave. Explore possibilities, share your vision, and let's collaborate to turn your ideas into reality." />
+  <meta name="robots" content="noindex, follow" />
+  <%- include('partials/preconnect') %>
+    <link rel="preload" as="image" href="https://rhosigma.in/images/banner.webp" />
+
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Connect with Us - Innovate with Us - Rhosigma" />
+    <meta property="og:description"
+      content="Contact Rhosigma now and be part of the innovation wave. Explore possibilities, share your vision, and let's collaborate to turn your ideas into reality." />
+    <meta property="og:url" content="https://rhosigma.in/contact-us" />
+    <link rel="canonical" href="https://rhosigma.in/contact-us" />
+
+    <!-- Twitter Card meta tags for Twitter sharing -->
+    <meta name="twitter:title" content="Connect with Us - Innovate with Us - Rhosigma" />
+    <meta name="twitter:description"
+      content="Contact Rhosigma now and be part of the innovation wave. Explore possibilities, share your vision, and let's collaborate to turn your ideas into reality." />
+    <%- include('partials/metas') %>
+</head>
+
+<body>
+  <%- include('partials/navbar') %>
+
+    <!-- !Service Banner -->
+    <section class="bg-container --bg-img-container blog-banner m-b-50 m-t-50">
+      <h1 class="h1 fc-w fw6 t-upper tc">Connect with Rhosigma</h1>
+    </section>
+    <!-- !Service Banner -->
+
+    <!-- !Let's Shape the Future Together -->
+    <section class="what-we-do m-t-100 m-b-50">
+      <div class="container what-we-do__main-content">
+        <h2 class="h2 m-b-20">Let's Shape the Future Together</h2>
+        <p class="p-2 fc-s fw-5 m-b-20 lh-150">
+          Thank you for your interest in Rhosigma. We welcome inquiries,
+          collaboration opportunities, and the chance to discuss how our
+          innovative solutions can meet your specific needs. Whether you're a
+          prospective client, partner, or enthusiast, our team is eager to
+          engage with you.
+        </p>
+        <p class="p-2 fc-s fw-5 m-b-20 lh-150">
+          Reach out to us through the contact information below, and let's
+          embark on a journey of technological excellence and collaborative
+          success. Your vision, our innovation — together, we can shape a future
+          powered by precision and ingenuity.
+        </p>
+      </div>
+    </section>
+    <!-- !Let's Shape the Future Together -->
+
+    <!-- ! Contact Form -->
+    <section class="contact-form container m-b-50 m-t-50">
+      <form class="get-quote__contact-form contact-form__form" action="/contact-us" method="post" id='contact-form'
+        onsubmit="handleFormSubmit(event, 'contact-form')">
+        <div class="form-item">
+          <label for="contact-name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Name" required maxlength="50"
+            oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'')" onblur="validateName('contact-form')" />
+          <p id="nameError" class="error-message"></p>
+        </div>
+        <div class="form-item-grid">
+          <div class="form-item">
+            <label for="contact-phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Phone" required autocomplete="off" name="phone" maxlength="15"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'')" onblur="validatePhone('contact-form')" />
+            <p id="phoneError" class="error-message"></p>
+          </div>
+
+          <div class="form-item">
+            <label for="contact-email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required
+              onblur="validateEmail('contact-form')" />
+            <p id="emailError" class="error-message"></p>
+          </div>
+
+        </div>
+        <div class="form-item">
+          <label for="contact-message">Message</label>
+          <textarea id="textarea" name="message" placeholder="Message" autocomplete="off"></textarea>
+          <p id="messageError" class="error-message"></p>
+        </div>
+        <button type="submit" class="get-quote__btn submit-btn contact-us-form">Submit</button>
+        <p class="form-message m-t-20"></p>
+      </form>
+    </section>
+    <!-- ! Contact Form -->
+
+    <div class="contact__info container m-b-50">
+      <div class="contact">
+        <a class="fc-a fw-5 p-2" href="tel:86555 87403"><span><img src="/images/phone.svg" alt="phone" /></span> +91
+          86555
+          87403 </a>
+        <a class="fc-a fw-5 p-2" href="tel:80973 90322">/ +91
+          80973 90322</a>
+      </div>
+      <a class="fc-a fw-5 p-2" href="mailto:info@rhosigma.in"><span><img loading="lazy" src="/images/mail.svg"
+            alt="email" /></span>
+        info@rhosigma.in</a>
+      <p class="fc-s fw-5 p-2">
+        <span class="location-icon"><img loading="lazy" src="/images/location.svg" alt="phone" /></span>602-B, Virani
+        Business Center, Opp Bharat Gears Limited, Kausa Mumbra, Thane 400612.
+      </p>
+    </div>
+
+    <div class="contact__map container m-b-50">
+      <iframe class="br-20"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15075.50293175918!2d73.0287206!3d19.156916100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1703061071969!5m2!1sen!2sin"
+        width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <p class="fc-s fw-5 p-2 m-t-50">
+        Feel free to connect with us via the provided email, phone, or visit our
+        office. We look forward to hearing from you soon!
+      </p>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

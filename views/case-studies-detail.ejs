@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= caseStudy.metaTitle %>
+    </title>
+    <meta name="description" content="<%= caseStudy.metaDescription %>">
+    <meta name="robots" content="<%= caseStudy.indexing %>">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image"
+            href="https://rhosigma.in/images/revolutionizing-telecommunications-infrastructure_6.webp" />
+
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="<%= caseStudy.metaTitle %>">
+        <meta property="og:description" content="<%= caseStudy.metaDescription %>">
+        <meta property="og:url" content="https://rhosigma.in/case-studies/<%= caseStudy.slug %>">
+        <link rel="canonical" href="https://rhosigma.in/case-studies/<%= caseStudy.slug %>" />
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="<%= caseStudy.metaTitle %>">
+        <meta name="twitter:description" content="<%= caseStudy.metaDescription %>">
+        <%- include('partials/metas') %>
+</head>
+
+
+<body>
+    <%- include('partials/navbar') %>
+
+
+        <!-- !Service Banner -->
+        <section class="bg-container --bg-img-container services-banner m-b-50 m-t-50">
+            <!-- *BreadCrumb -->
+            <div class="container breadcrumb">
+                <a href="/">Home</a>
+                <a href="/case-studies">Case Studies</a>
+                <a class="bc-active">
+                    <%= caseStudy.title %>
+                </a>
+            </div>
+            <!-- *BreadCrumb -->
+        </section>
+
+        <!-- !Service Banner -->
+
+
+
+        <!-- ! Case Studies -->
+        <section class="container job-description m-t-100 m-b-100">
+            <h2>
+                <%= caseStudy.title %>
+            </h2>
+            <%- caseStudy.content %>
+        </section>
+        <!-- ! Case Studies -->
+
+
+
+
+        <%- include('partials/contact') %>
+            <%- include('partials/footer') %>
+
+
+
+
+
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var parent = document.querySelector(".current-opening__process");
+                        var items = parent.querySelectorAll(".step");
+                        var loadMoreBtn = document.getElementById("load-more-comments");
+                        var maxItems = 3;
+                        var hiddenClass = "visually-hidden";
+
+                        // Add visually hidden class to items beyond maxItems
+                        items.forEach(function (item, idx) {
+                            if (idx > maxItems - 1) {
+                                item.classList.add(hiddenClass);
+                            }
+                        });
+
+                        // On click of show more button, show more = maxItems
+                        // If there are none left to show, hide the show more button
+                        loadMoreBtn.addEventListener("click", function (e) {
+                            var hiddenItems = parent.querySelectorAll("." + hiddenClass);
+                            hiddenItems.forEach(function (item, idx) {
+                                if (idx < maxItems) {
+                                    item.classList.remove(hiddenClass);
+                                }
+                            });
+
+                            // Hide button if no more to show
+                            if (parent.querySelectorAll("." + hiddenClass).length === 0) {
+                                loadMoreBtn.style.display = 'none';
+                            }
+                        });
+                    });
+                </script>
+</body>
+
+
+</html>

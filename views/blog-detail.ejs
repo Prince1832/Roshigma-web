@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= blog.metaTitle %>
+    </title>
+    <meta name="description" content="<%= blog.metaDescription %>">
+    <meta name="robots" content="<%= blog.indexing %>">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image" href="https://rhosigma.in/images/banner.webp" />
+
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="<%= blog.metaTitle %>">
+        <meta property="og:description" content="<%= blog.metaDescription %>">
+        <meta property="og:url" content="https://rhosigma.in/blog/<%= blog.slug %>">
+        <link rel="canonical" href="https://rhosigma.in/blog/<%= blog.slug %>" />
+
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="<%= blog.metaTitle %>">
+        <meta name="twitter:description" content="<%= blog.metaDescription %>">
+        <%- include('partials/metas') %>
+            <link rel="stylesheet" href="/css/swiper.css">
+</head>
+
+
+<body>
+    <%- include('partials/navbar') %>
+
+
+        <!-- !Service Banner -->
+        <section class="bg-container --bg-img-container blog-banner m-b-50 m-t-50">
+            <h2 class="h1 fc-w fw6 t-upper tc">
+                BLOG
+            </h2>
+            <!-- *BreadCrumb -->
+            <div class="container breadcrumb">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a class="bc-active">
+                   
+                </a>
+            </div>
+            <!-- *BreadCrumb -->
+        </section>
+
+        <!-- !Service Banner -->
+
+
+
+
+
+        <!-- ! Blog Details -->
+        <section class="blog-detail m-b-50 m-t-50 container">
+            <div class="blog-detail__page">
+                <div class="blog-detail__info">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 20" fill="none">
+                            <path
+                                d="M17 19C17 16.2386 13.4183 14 9 14C4.58172 14 1 16.2386 1 19M9 11C6.23858 11 4 8.76142 4 6C4 3.23858 6.23858 1 9 1C11.7614 1 14 3.23858 14 6C14 8.76142 11.7614 11 9 11Z"
+                                stroke="#373737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <%= blog.author.name %>
+                    </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M10 5V10H15M10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19Z"
+                                stroke="#373737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <%= blog.readTime %>
+                    </span>
+                    <span id="date">
+                        <%= blog.updatedAt.toLocaleDateString() %>
+                    </span>
+                    <div class="blog-detail__social-handle">
+                        <a href="https://www.facebook.com/profile.php?id=61554339482020/" target="_blank"
+                            rel="nofollow noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="23"
+                                height="24" viewBox="0 0 23 24" fill="none">
+                                <path
+                                    d="M22.8571 12C22.8571 5.71427 17.7143 0.571411 11.4286 0.571411C5.14286 0.571411 0 5.71427 0 12C0 17.7143 4.14286 22.4286 9.57143 23.2857V15.2857H6.71429V12H9.57143V9.42855C9.57143 6.57141 11.2857 4.99998 13.8571 4.99998C15.1429 4.99998 16.4286 5.2857 16.4286 5.2857V8.14284H15C13.5714 8.14284 13.1429 8.99998 13.1429 9.85713V12H16.2857L15.7143 15.2857H13V23.4286C18.7143 22.5714 22.8571 17.7143 22.8571 12Z"
+                                    fill="url(#paint0_linear_645_920)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_645_920" x1="0" y1="0.571411" x2="27.5777"
+                                        y2="11.3439" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0D9DE0" />
+                                        <stop offset="1" stop-color="#2E5BAB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                        <a href="https://twitter.com/Rhosigma" target="_blank"
+                            rel="nofollow noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="20" viewBox="0 0 24 20" fill="none">
+                                <path
+                                    d="M23.7143 3.00003C22.8571 3.42861 22 3.57146 21 3.71432C22 3.14289 22.7143 2.28575 23 1.14289C22.1429 1.71432 21.1429 2.00003 20 2.28575C19.1429 1.42861 17.8571 0.857178 16.5714 0.857178C13.5714 0.857178 11.2857 3.71432 12 6.57146C8.14286 6.42861 4.71429 4.57146 2.28571 1.71432C1 3.85718 1.71429 6.57146 3.71429 8.00004C3 8.00004 2.28571 7.71432 1.57143 7.42861C1.57143 9.57146 3.14286 11.5715 5.28572 12.1429C4.57143 12.2857 3.85714 12.4286 3.14286 12.2857C3.71429 14.1429 5.42857 15.5715 7.57143 15.5715C5.85714 16.8572 3.28571 17.5715 0.857143 17.2857C3 18.5715 5.42857 19.4286 8 19.4286C16.7143 19.4286 21.5714 12.1429 21.2857 5.42861C22.2857 4.85718 23.1429 4.00004 23.7143 3.00003Z"
+                                    fill="url(#paint0_linear_645_921)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_645_921" x1="0.857143" y1="0.857178" x2="26.6753"
+                                        y2="13.2697" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0D9DE0" />
+                                        <stop offset="1" stop-color="#2E5BAB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/company/rhosigma-engineering-automations-pvt-ltd/" target="_blank"
+                            rel="nofollow noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M5.85715 23.4286H0.999997V8.14284H5.85715V23.4286ZM3.42857 5.99998C1.85715 5.99998 0.714287 4.85712 0.714287 3.2857C0.714287 1.71427 2 0.571411 3.42857 0.571411C5 0.571411 6.14286 1.71427 6.14286 3.2857C6.14286 4.85712 5 5.99998 3.42857 5.99998ZM23.5714 23.4286H18.7143V15.1428C18.7143 12.7143 17.7143 12 16.2857 12C14.8571 12 13.4286 13.1428 13.4286 15.2857V23.4286H8.57143V8.14284H13.1429V10.2857C13.5714 9.2857 15.2857 7.71427 17.7143 7.71427C20.4286 7.71427 23.2857 9.2857 23.2857 14V23.4286H23.5714Z"
+                                    fill="url(#paint0_linear_645_922)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_645_922" x1="0.714287" y1="0.571411" x2="28.292"
+                                        y2="11.3439" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0D9DE0" />
+                                        <stop offset="1" stop-color="#2E5BAB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <div class="blog-detail__main-content">
+                    <h1 class="h4 fc-a fw-6 m-b-20">
+                        <%= blog.title %>
+                    </h1>
+                    <img loading="lazy" width="100%" height="390px" src="<%= blog.banner %>"
+                        alt="Image of <%= blog.title %> - Rhosigma">
+
+                    <p class="p-2 fc-s fw-5 m-b-20">
+                        <%= blog.description %>
+                    </p>
+
+
+                    <div class="editor-content" id="editor-content">
+                        <%- blog.content %>
+                    </div>
+
+                </div>
+
+                <div class="blog-detail__share">
+                    <span>Did you like our Blog ?</span>
+                    <span>Share it on:</span>
+                    <div class="blog-detail__social-handle">
+                        <a href="https://www.facebook.com/profile.php?id=61554339482020/" target="_blank"
+                            rel="nofollow noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="23"
+                                height="24" viewBox="0 0 23 24" fill="none">
+                                <path
+                                    d="M22.8571 12C22.8571 5.71427 17.7143 0.571411 11.4286 0.571411C5.14286 0.571411 0 5.71427 0 12C0 17.7143 4.14286 22.4286 9.57143 23.2857V15.2857H6.71429V12H9.57143V9.42855C9.57143 6.57141 11.2857 4.99998 13.8571 4.99998C15.1429 4.99998 16.4286 5.2857 16.4286 5.2857V8.14284H15C13.5714 8.14284 13.1429 8.99998 13.1429 9.85713V12H16.2857L15.7143 15.2857H13V23.4286C18.7143 22.5714 22.8571 17.7143 22.8571 12Z"
+                                    fill="url(#paint0_linear_645_920)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_645_920" x1="0" y1="0.571411" x2="27.5777"
+                                        y2="11.3439" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0D9DE0" />
+                                        <stop offset="1" stop-color="#2E5BAB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                        <a href="https://twitter.com/@rhosigma" target="_blank"
+                            rel="nofollow noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="20" viewBox="0 0 24 20" fill="none">
+                                <path
+                                    d="M23.7143 3.00003C22.8571 3.42861 22 3.57146 21 3.71432C22 3.14289 22.7143 2.28575 23 1.14289C22.1429 1.71432 21.1429 2.00003 20 2.28575C19.1429 1.42861 17.8571 0.857178 16.5714 0.857178C13.5714 0.857178 11.2857 3.71432 12 6.57146C8.14286 6.42861 4.71429 4.57146 2.28571 1.71432C1 3.85718 1.71429 6.57146 3.71429 8.00004C3 8.00004 2.28571 7.71432 1.57143 7.42861C1.57143 9.57146 3.14286 11.5715 5.28572 12.1429C4.57143 12.2857 3.85714 12.4286 3.14286 12.2857C3.71429 14.1429 5.42857 15.5715 7.57143 15.5715C5.85714 16.8572 3.28571 17.5715 0.857143 17.2857C3 18.5715 5.42857 19.4286 8 19.4286C16.7143 19.4286 21.5714 12.1429 21.2857 5.42861C22.2857 4.85718 23.1429 4.00004 23.7143 3.00003Z"
+                                    fill="url(#paint0_linear_645_921)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_645_921" x1="0.857143" y1="0.857178" x2="26.6753"
+                                        y2="13.2697" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0D9DE0" />
+                                        <stop offset="1" stop-color="#2E5BAB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+
+                        <a href="https://www.linkedin.com/company/rhosigma-engineering-automations-pvt-ltd/" target="_blank"
+                            rel="nofollow noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M5.85715 23.4286H0.999997V8.14284H5.85715V23.4286ZM3.42857 5.99998C1.85715 5.99998 0.714287 4.85712 0.714287 3.2857C0.714287 1.71427 2 0.571411 3.42857 0.571411C5 0.571411 6.14286 1.71427 6.14286 3.2857C6.14286 4.85712 5 5.99998 3.42857 5.99998ZM23.5714 23.4286H18.7143V15.1428C18.7143 12.7143 17.7143 12 16.2857 12C14.8571 12 13.4286 13.1428 13.4286 15.2857V23.4286H8.57143V8.14284H13.1429V10.2857C13.5714 9.2857 15.2857 7.71427 17.7143 7.71427C20.4286 7.71427 23.2857 9.2857 23.2857 14V23.4286H23.5714Z"
+                                    fill="url(#paint0_linear_645_922)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_645_922" x1="0.714287" y1="0.571411" x2="28.292"
+                                        y2="11.3439" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0D9DE0" />
+                                        <stop offset="1" stop-color="#2E5BAB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/blog" class="rhosigma-btn">Back to Blogs</a>
+            </div>
+
+
+            <div class="blog-detail__table-content m-t-100">
+                <div class="blog-detail__sticky" id="table">
+                    <h2 class="h3 fc-s m-b-20">Table Of Content</h2>
+                </div>
+            </div>
+        </section>
+        <!-- ! Blog Details -->
+
+
+        <!-- !related product section -->
+        <% if (relatedBlogs.length>0) { %>
+
+            <section class="related-blogs m-b-150 m-t-100 container">
+                <h2 class="h2">Related Blogs</h2>
+                <div class="related-blogs__swiper swiper relatedProductsSwiper">
+                    <div class="swiper-wrapper p-b-50">
+                        <div class="swiper-slide --h-full">
+                            <% relatedBlogs.forEach(blog=> { %>
+                                <div class="blogs__card --related-blogs-width">
+                                    <img loading="lazy" width="380" height="200" src="<%= blog.image %>"
+                                        alt="Image of <%= blog.title %> - Rhosigma">
+                                    <div class="blogs__content">
+                                        <div class="blogs__info">
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                    viewBox="0 0 18 20" fill="none">
+                                                    <path
+                                                        d="M17 19C17 16.2386 13.4183 14 9 14C4.58172 14 1 16.2386 1 19M9 11C6.23858 11 4 8.76142 4 6C4 3.23858 6.23858 1 9 1C11.7614 1 14 3.23858 14 6C14 8.76142 11.7614 11 9 11Z"
+                                                        stroke="#373737" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                                <%= blog.author.name %>
+                                            </span>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                    viewBox="0 0 20 20" fill="none">
+                                                    <path
+                                                        d="M10 5V10H15M10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19Z"
+                                                        stroke="#373737" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                                <%= blog.readTime %>
+                                            </span>
+                                            <span id="date">
+                                                <%= blog.createdAt.toLocaleDateString() %>
+                                            </span>
+                                        </div>
+                                        <h2 class="h5 fc-a fw-6 "><a href="/blog/<%= blog.slug %>">
+                                                <%= blog.title %>
+                                            </a></h2>
+                                        <a href="/blog/<%= blog.slug %>" class="rhosigma-btn --animated-btn"> Read Blog
+                                            <img loading="lazy" width="24" height="24" src="/images/arrow.svg"
+                                                alt="Learn More"></a>
+                                    </div>
+                                    <% }); %>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+            <% }; %>
+
+                <!-- !related product section -->
+
+
+
+
+
+
+                <%- include('partials/contact') %>
+                    <%- include('partials/footer') %>
+
+                        <script src="/javascript/swiper.js"></script>
+
+
+
+                        <!-- !related product swiper -->
+                        <script>
+                            var swiper = new Swiper(".relatedProductsSwiper", {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                },
+                                breakpoints: {
+                                    0: {
+                                        slidesPerView: 1,
+                                    },
+                                    480: {
+                                        slidesPerView: 1,
+                                    },
+                                    576: {
+                                        slidesPerView: 2,
+                                    },
+                                    768: {
+                                        slidesPerView: 2,
+                                    },
+                                    992: {
+                                        slidesPerView: 2,
+                                    },
+                                    1200: {
+                                        slidesPerView: 3,
+                                    },
+                                    1700: {
+                                        slidesPerView: 3,
+                                    },
+                                },
+                            });
+                        </script>
+                        <!-- !related product swiper -->
+
+
+
+
+                        <!-- ! highlight points -->
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const section = document.getElementById("editor-content");
+                                const h2 = section.querySelectorAll("h2");
+                                const table = document.getElementById("table");
+
+                                h2.forEach((h, index) => {
+                                    const id = index + 1;
+                                    h.setAttribute("id", id);
+                                    const a = document.createElement("a");
+                                    a.setAttribute("href", `#${id}`);
+                                    a.textContent = h.textContent;
+                                    table.appendChild(a);
+                                });
+
+                                // Smooth scrolling for anchor links
+                                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                                    anchor.addEventListener('click', function (e) {
+                                        e.preventDefault();
+
+                                        const targetId = this.getAttribute('href').substring(1);
+                                        const targetElement = document.getElementById(targetId);
+
+                                        if (targetElement) {
+                                            // Adjust the offset to account for the height of the fixed navbar and additional space
+                                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                                            const additionalSpace = 20; // Adjust this value as needed
+                                            const offset = navbarHeight + additionalSpace;
+
+                                            window.scrollTo({
+                                                top: targetElement.offsetTop - offset,
+                                                behavior: 'smooth'
+                                            });
+                                        }
+                                    });
+                                });
+
+                                // Highlight the active section in the table of contents
+                                function highlightLink() {
+                                    const scrollPos = window.scrollY;
+
+                                    h2.forEach((h, index) => {
+                                        const id = index + 1;
+                                        const section = document.getElementById(id);
+
+                                        if (
+                                            section.offsetTop <= scrollPos + 180 &&
+                                            section.offsetTop + section.offsetHeight > scrollPos + 180
+                                        ) {
+                                            const currentLink = document.querySelector(`#table a[href="#${id}"]`);
+                                            document.querySelectorAll("#table a").forEach(link => {
+                                                link.classList.remove("highlight");
+                                            });
+                                            if (currentLink) {
+                                                currentLink.classList.add("highlight");
+                                            }
+                                        }
+                                    });
+                                }
+
+                                // Call the highlightLink function on scroll
+                                window.addEventListener("scroll", highlightLink);
+                            });
+                        </script>
+                        <!-- ! highlight points -->
+
+
+
+</body>
+
+
+</html>

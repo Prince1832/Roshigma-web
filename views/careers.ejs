@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers: Explore Exciting Opportunities with Us - Rhosigma</title>
+    <meta name="description"
+        content="Your path awaits us. Join a team dedicated to redefining innovation in the electronics tech landscape. Explore and discover exciting career opportunities.">
+    <meta name="robots" content="index, follow">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image" href="https://rhosigma.in/images/career-banner.webp" />
+
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="Careers: Explore Exciting Opportunities with Us - Rhosigma">
+        <meta property="og:description"
+            content="Your path awaits us. Join a team dedicated to redefining innovation in the electronics tech landscape. Explore and discover exciting career opportunities.">
+        <meta property="og:url" content="https://rhosigma.in/careers">
+        <link rel="canonical" href="https://rhosigma.in/careers" />
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="Careers: Explore Exciting Opportunities with Us - Rhosigma">
+        <meta name="twitter:description"
+            content="Your path awaits us. Join a team dedicated to redefining innovation in the electronics tech landscape. Explore and discover exciting career opportunities.">
+        <%- include('partials/metas') %>
+</head>
+
+
+<body>
+    <%- include('partials/navbar') %>
+
+
+        <!-- !Service Banner -->
+        <section class="bg-container --bg-img-container career-banner m-b-50 m-t-50">
+            <h1 class="h1 fc-w fw6 t-upper tc">Career with rhosigma</h1>
+            <!-- *BreadCrumb -->
+            <div class="container breadcrumb">
+                <a href="/">Home</a>
+                <a class="bc-active">Careers</a>
+            </div>
+            <!-- *BreadCrumb -->
+        </section>
+        <!-- !Service Banner -->
+
+
+
+        <!-- !Innovate, Collaborate, Elevate -->
+        <section class=" what-we-do m-t-50 m-b-50">
+            <div class="container what-we-do__main-content">
+                <h2 class="h2 m-b-20">Innovate, Collaborate, Elevate</h2>
+                <p class="p-2 fc-s fw-5 m-b-20">At Rhosigma, we believe in the power of innovation, collaboration, and
+                    nurturing talent. Joining our team means becoming part of a dynamic community where ideas flourish,
+                    and excellence is the standard.</p>
+            </div>
+        </section>
+        <!-- !Innovate, Collaborate, Elevate -->
+
+
+        <% if (careers.length>0) { %>
+            <!-- ! Current Openings -->
+            <section class="bg-container current-opening p-t-50 p-b-50">
+                <div class="container">
+                    <h2 class="h2 m-b-20">Current Openings</h2>
+                    <p class="p-2 fc-s fw-5 m-b-20">Explore our current job openings and discover positions that align
+                        with
+                        your skills and aspirations
+                    </p>
+                    <div class="current-opening__process m-t-50">
+                        <% careers.forEach(function(career) { %>
+                            <a href="/careers/<%= career.slug %>" class="step current-opening__card">
+                                <div class="current-opening__textual-content">
+                                    <h3 class="h5 fw-6 fc-a">
+                                        <%= career.position %>
+                                    </h3>
+                                    <p class="p-2 fc-s fw-4">
+                                        <%= career.description %>
+                                    </p>
+                                    <span class="service-button"><span>Job
+                                            Description</span></span>
+                                </div>
+                            </a>
+                            <% }); %>
+                    </div>
+                    <a class="rhosigma-btn m-t-50" id="load-more-comments">view More</a>
+                </div>
+            </section>
+            <!-- ! Current Openings -->
+            <% }; %>
+
+
+
+                <!-- !Why Rhosigma -->
+                <section class=" who-we-are m-t-50 m-b-50">
+                    <div class="container why-rhosigma who-we-are__main-content">
+                        <h2 class="h2">Why Rhosigma:</h2>
+                        <p class="why-rhosigma__para p-2 fw-6 f-i fc-s lh-150">Discover what makes Rhosigma a unique and
+                            rewarding workplace. From our commitment to cutting-edge technology to our emphasis on
+                            work-life
+                            balance, know the reasons why joining Rhosigma is more than just a career move.
+                        </p>
+                        <div class="who-we-are__textual-content">
+                            <p class="p-2 fw-5 fc-s lh-150">Where innovation meets excellence in the world of electronic
+                                technology.
+                                Established with a passion for advancing the boundaries of what's possible.</p>
+                            <p class="p-2 fw-5 fc-s lh-150">We are a dynamic company specializing in Electronic Product
+                                Technology
+                                Development, Manufacturing, Aftersales Services, Supply Chain Management, Design
+                                Engineering,
+                                Internet of Things (IoT), Electronic Manufacturing Services (EMS), Defense,
+                                Telecommunication,
+                                and
+                                Energy.</p>
+                        </div>
+                        <div class="who-we-are__visual-content">
+                            <img loading="lazy" width="300" height="200" src="/images/firmware-development.webp"
+                                alt="Firmware Development - Rhosigma">
+                            <img loading="lazy" width="300" height="200" src="/images/who-we-are-img-2_6.webp"
+                                alt="who we are - Rhosigma">
+                            <video width="300" height="200" autoplay muted playsinline loop>
+                                <source src="/images/drone.mp4">
+                            </video>
+                            <img loading="lazy" width="300" height="200" src="/images/who-we-are-img-3_6.webp"
+                                alt="Dynamic Company - Rhosigma">
+                        </div>
+                    </div>
+                </section>
+                <!-- !Why Rhosigma -->
+
+
+
+
+                <!-- !Internship Programs: -->
+                <section class=" who-we-are m-t-50 m-b-50">
+                    <div class="container why-rhosigma who-we-are__main-content">
+                        <h2 class="h2">Internship Programs:</h2>
+                        <p class="why-rhosigma__para p-2 fw-6 f-i fc-s lh-150">If you're a student or recent graduate
+                            looking to
+                            kickstart your career, our internship programs offer hands-on experience in a dynamic and
+                            innovative
+                            environment.
+                        </p>
+                        <div class="who-we-are__textual-content">
+                            <h3 class="h4 fc-s fw-6">Program Highlights</h3>
+                            <p class="p-2 fw-5 fc-s lh-150">
+                                <strong class="f-i">Real-World Projects</strong>Our internship program exposes you to
+                                projects
+                                that challenge and inspire, providing a platform to apply theoretical knowledge to
+                                practical
+                                scenarios.
+                            </p>
+                            <p class="p-2 fw-5 fc-s lh-150">
+                                <strong class="f-i">Mentorship from Experts</strong>Our internship program exposes you
+                                to
+                                projects
+                                that challenge and inspire, providing a platform to apply theoretical knowledge to
+                                practical
+                                scenarios.
+                            </p>
+                            <p class="p-2 fw-5 fc-s lh-150">
+                                <strong class="f-i">Innovative Learning Environment</strong>Our internship program
+                                exposes you
+                                to projects
+                                that challenge and inspire, providing a platform to apply theoretical knowledge to
+                                practical
+                                scenarios.
+                            </p>
+                        </div>
+                        <div class="who-we-are__visual-content">
+                            <img loading="lazy" width="300" height="200" src="/images/firmware-development.webp"
+                                alt="Firmware Development - Rhosigma">
+                            <img loading="lazy" width="300" height="200" src="/images/who-we-are-img-2_6.webp"
+                                alt="who we are - Rhosigma">
+                            <video width="300" height="200" autoplay muted playsinline loop>
+                                <source src="/images/drone.mp4">
+                            </video>
+                            <img loading="lazy" width="300" height="200" src="/images/who-we-are-img-3_6.webp"
+                                alt="Dynamic Company - Rhosigma">
+                        </div>
+                    </div>
+                </section>
+                <!-- !Internship Programs: -->
+
+
+                <%- include('partials/contact') %>
+                    <%- include('partials/footer') %>
+
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var parent = document.querySelector(".current-opening__process");
+                                var items = parent.querySelectorAll(".step");
+                                var loadMoreBtn = document.getElementById("load-more-comments");
+                                var maxItems = 3;
+                                var hiddenClass = "visually-hidden";
+
+                                // Add visually hidden class to items beyond maxItems
+                                items.forEach(function (item, idx) {
+                                    if (idx > maxItems - 1) {
+                                        item.classList.add(hiddenClass);
+                                    }
+                                });
+
+                                // On click of show more button, show more = maxItems
+                                // If there are none left to show, hide the show more button
+                                loadMoreBtn.addEventListener("click", function (e) {
+                                    var hiddenItems = parent.querySelectorAll("." + hiddenClass);
+                                    hiddenItems.forEach(function (item, idx) {
+                                        if (idx < maxItems) {
+                                            item.classList.remove(hiddenClass);
+                                        }
+                                    });
+
+                                    // Hide button if no more to show
+                                    if (parent.querySelectorAll("." + hiddenClass).length === 0) {
+                                        loadMoreBtn.style.display = 'none';
+                                    }
+                                });
+                            });
+                        </script>
+</body>
+
+
+</html>

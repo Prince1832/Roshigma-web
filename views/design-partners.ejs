@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Partners - Rhosigma</title>
+    <meta name="description"
+        content="Unleash creativity with our design partners. Your projects deserve the touch of experts who breathe life into visions.">
+    <meta name="robots" content="noindex, follow">
+    <%- include('partials/preconnect') %>
+        <link rel="preload" as="image" href="https://rhosigma.in/images/about-us-banner.webp" />
+
+        <!-- Open Graph meta tags for social sharing -->
+        <meta property="og:title" content="Design Partners - Rhosigma">
+        <meta property="og:description"
+            content="Unleash creativity with our design partners. Your projects deserve the touch of experts who breathe life into visions.">
+        <meta property="og:url" content="https://rhosigma.in/design-partners">
+        <link rel="canonical" href="https://rhosigma.in/design-partners" />
+
+        <!-- Twitter Card meta tags for Twitter sharing -->
+        <meta name="twitter:title" content="Design Partners - Rhosigma">
+        <meta name="twitter:description"
+            content="Unleash creativity with our design partners. Your projects deserve the touch of experts who breathe life into visions.">
+        <%- include('partials/metas') %>
+</head>
+
+
+<body>
+    <%- include('partials/navbar') %>
+
+
+        <!-- !Service Banner -->
+        <section class="bg-container --bg-img-container design-p-banner m-b-50 m-t-50">
+            <h1 class="h1 fc-w fw6 t-upper tc">Design Partners</h1>
+        </section>
+        <!-- !Service Banner -->
+
+
+
+        <!-- !Design Partners -->
+        <section class="container what-we-do m-t-50 m-b-50">
+            <p class=" p-2 fc-s fw-5 m-t-50 m-b-50 lh-150">We are proud to collaborate with some of the world's
+                leading
+                design
+                partners and chip vendors to ensure that your custom designs not only meet but exceed expectations.
+                Our partnerships with renowned design firms and chip vendors are a testament to our commitment to
+                delivering cutting-edge solutions for our clients.
+            </p>
+
+
+            <div class="partners m-b-50">
+                <% if (design.length>0) { %>
+                    <% design.forEach(d=> { %>
+                        <div class="partners__profile">
+                            <img width="340" height="200" loading="lazy" src="<%= d.logo %>" alt="<%= d.partnerName %> - Rhosigma">
+                            <h2 class="h2 m-b-20">
+                                <%= d.partnerName %>
+                            </h2>
+                            <p class="fc-s fw-5 p-2 lh-150">
+                                <%= d.description %>
+                            </p>
+                        </div>
+                        <% }); %>
+                            <% }; %>
+            </div>
+        </section>
+        <!-- !Design Partners -->
+
+        <%- include('partials/footer') %>
+</body>
+
+
+</html>
